@@ -1,49 +1,171 @@
-<!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
+<!DOCTYPE HTML>
 <html>
     <head>
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
+        <title>nativeDroid - Theme for jQuery Mobile - header and footer</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		
+		<!-- FontAwesome - http://fortawesome.github.io/Font-Awesome/ -->
+        <link rel="stylesheet" href="css/font-awesome.min.css" />
+
+		<!-- jQueryMobileCSS - original without styling -->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+		<!-- nativeDroid core CSS -->
+        <link rel="stylesheet" href="css/jquerymobile.nativedroid.css" />
+        <link rel="stylesheet" href="css/emergente.css" />
+
+		<!-- nativeDroid: Light/Dark -->
+        <link rel="stylesheet" href="css/jquerymobile.nativedroid.dark.css"  id='jQMnDTheme' />
+
+		<!-- nativeDroid: Color Schemes -->
+        <link rel="stylesheet" href="css/jquerymobile.nativedroid.color.green.css" id='jQMnDColor' />
+        <link rel="stylesheet" xhref="css/lightbox.css" mce_href="css/lightbox.css" type="text/css" media="screen" /> 
+
+		<!-- jQuery / jQueryMobile Scripts -->
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+
+ <script src="http://jqueryjs.googlecode.com/files/jquery-1.2.6.min.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+//Configuramos el evento de carga de página, se ejecuta solamente 1 vez cuando la página cargo por completo
+$(document).ready(function(){
+  centraVentana();
+  muestraVentana();
+  //Agregamos el evento "click" del div: ventanaPopup1Cerrar
+  $("#ventanaPopup1Cerrar").click(function(){
+    ocultaVentana();
+  });
+  //Agregamos el evento "click" del div: ventanaPopup1Fondo
+  $("#ventanaPopup1Fondo").click(function(){
+    ocultaVentana();
+  });
+});
+ 
+function centraVentana() {
+    //Obtenemos ancho y alto del navegador, y alto y ancho de la popUp
+    var windowWidth = document.documentElement.clientWidth;
+    var windowHeight = document.documentElement.clientHeight;
+    var popupHeight = $("#ventanaPopup1").height();
+    var popupWidth = $("#ventanaPopup1").width();
+    //centering
+    $("#ventanaPopup1").css({
+        "position": "absolute",
+        "top": windowHeight/2-popupHeight/2,
+        "left": windowWidth/2-popupWidth/2
+    });
+ 
+    //Solo se necesita para IE6
+    $("#ventanaPopup1Fondo").css({
+        "height": windowHeight
+    });
+}
+ 
+function ocultaVentana() {
+    $("#ventanaPopup1Fondo").fadeOut("slow");
+    $("#ventanaPopup1").fadeOut("slow");
+}
+ 
+function muestraVentana() {
+    $("#ventanaPopup1Fondo").css({
+        "opacity": "0.7"
+    });
+    $("#ventanaPopup1Fondo").fadeIn("slow");
+    $("#ventanaPopup1").fadeIn("slow");
+}
+</script>
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
+  <div id="ventanaPopup1">
+    <a id="ventanaPopup1Cerrar">x</a>
+  <center><br>
+                <img src="img/logo_simit.gif" width='100' height='100' border="0">
+                </center> 
+	        	<br><br><br>
+				<p align="justify">  Bienvenido a la aplicacion del sistema integrado de la informacion sobre multas y sanciones por infracciones de transito-SIMIT. Atravez de esta aplicacion podra consultar sus infracciones de transito pendientes y el estado de su cuenta. asi mismo podra consultar puntos de atencion y noticias actualizadas del sistema.</p>
+  </div>
+  <div id="ventanaPopup1Fondo"></div>
+
+   
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
+            <a href="index.html" data-ajax="false"><i class='fa fa-bars'></i></a>
+            <h1>Simit</h1>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        
+        <div data-role="content">   
+	        <div class='inset'>
+                
+             <center><img src="img/logo_simit.jpg" ></center>
+    <p>Digite la infomacion requerida para consultar su estado de cuenta.</p>  
+
+       <form action="C:/Movil/aplicacion/www/tabla_buscar.html">
+        <li data-role="fieldcontain">
+            <label for="select-choice-1b" class="select">TIPO DE DOCUMENTO</label>
+                        <select name="select-choice-1" id="select-choice-1b" data-native-menu="true">
+                            <option value="cc">CEDULA DE CIUDADANIA</option>
+                            <option value="ti">TARJETA DE IDENTIDAD</option>
+                            <option value="ce">CEDULA DES EXTRANJERIA</option>
+                            <option value="nit">NIT</option>
+                            <option value="java">PASAPORTE</option>
+                            <option value="cd">CARNET DIPLOMATICO</option>
+                            <option value="rc">REGISTRO CIVIL</option>
+                            <option value="cv">CEDULA VENEZOLANA</option>
+                        </select>
+                    </li>
+
+            NUMERO DE DOCUEMENTO:
+            <input type="text" name="nombre" value="" />
+ 
+            <br/>
+ 
+            <input type="submit" value="CONSULTAR" name="buscar" />
+            </form>
+                
+                
+<div data-role='popup' id='punto' data-theme='b'>               
+
+</div>   
+
+
+</div>                
+                
+                
+<div data-role='popup' id='mision' data-theme='b'>
+
+     <center><img src="img/mision.jpg" ></center>
+    Contribuir al mejoramiento de los ingresos de los municipios con la operacion y permanente actualizacion del sistema integrado de informacion sobre multas y sanciones por infracciones de transito a nivel nacional; permitiendo el acceso a la informacion que impida la realizacion de tramites de transito a los ciudadanos  que no se encuentren a paz y salvo.</div>   
+         
+ <div data-role='popup' id='vision' data-theme='b'>               
+<center><img src="img/vision.jpg" ></center>
+    Para el ano 2020 el Sistema Integrado de Informacion sobre Multas y Sanciones por Infracciones de Transito - SIMIT sera el referente en Latinoamerica con los mas altos estandares de innovacion, calidad y confiabilidad.<br>
+
+Seremos la mejor experiencia de gobierno en linea y la principal fuente de informacion para las politicas publicas de seguridad vial, garantizando la nivelacion tecnologica de los organismos territoriales de transito, y consolidandonos como un sistema invulnerable que asegure la satisfaccion del usuario y la rentabilidad social.</div>   
+
+
+</div>
+            
+
+		
+	
+
+		<div data-position="fixed" data-tap-toggle="false" data-role="footer" data-tap-toggle="false" data-theme='b'>
+			<div data-role="navbar">
+			<ul>
+					<li><a href='#consultar' data-rel='popup' data-position-to='window' data-role='button' data-icon='external-link' data-                               transition='pop' data-inline='true'><i class='blIcon fa fa-cogs'></i>Consulta</a></li>
+                
+					<li><a href='C:/Movil/aplicacion/www/mapa.html' data-rel='popup' data-position-to='window' data-role='button' data-icon='external-link' data-                               transition='pop' data-inline='true'><i class='blIcon fa fa-map-marker'></i>Punto de Atencion</a></li>
+					<li><a href='#mision' data-rel='popup' data-position-to='window' data-role='button' data-icon='external-link' data-                               transition='pop' data-inline='true'><i class='blIcon fa fa-share'></i>Mision</a></li>
+                
+                
+                    <li><a href='#vision' data-rel='popup' data-position-to='window' data-role='button' data-icon='external-link' data-                               transition='pop' data-inline='true'><i class='blIcon fa fa-share'></i>Vision</a></li>
+				</ul>
+			</div>
+		</div>
+
+    </div>
+    
     </body>
 </html>

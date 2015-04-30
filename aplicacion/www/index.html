@@ -76,10 +76,6 @@ function muestraVentana() {
     $("#ventanaPopup1").fadeIn("slow");
 }
 </script>
- <?php
-       $conexion = mysql_connect("localhost", "gustavo", "donatela");
-       mysql_select_db("tareologo", $conexion);
-       ?>
     </head>
     <body>
   <div id="ventanaPopup1">
@@ -102,21 +98,21 @@ function muestraVentana() {
         <div data-role="content">   
 	        <div class='inset'>
                 
-             <center><img src="img/logo_simit.gif" width='100' height='100'></center>
+             <center><img src="img/logo_simit.jpg" ></center>
     <p>Digite la infomacion requerida para consultar su estado de cuenta.</p>  
 
-    <form action="http://www.librosweb.es/maneja_formulario.php" method="post">
+       <form action="C:/Movil/aplicacion/www/tabla_buscar.html">
         <li data-role="fieldcontain">
             <label for="select-choice-1b" class="select">TIPO DE DOCUMENTO</label>
                         <select name="select-choice-1" id="select-choice-1b" data-native-menu="true">
-                            <option value="javascript">CEDULA DE CIUDADANIA</option>
-                            <option value="css">TARJETA DE IDENTIDAD</option>
-                            <option value="html">CEDULA DES EXTRANJERIA</option>
-                            <option value="csharp">NIT</option>
+                            <option value="cc">CEDULA DE CIUDADANIA</option>
+                            <option value="ti">TARJETA DE IDENTIDAD</option>
+                            <option value="ce">CEDULA DES EXTRANJERIA</option>
+                            <option value="nit">NIT</option>
                             <option value="java">PASAPORTE</option>
-                            <option value="java">CARNET DIPLOMATICO</option>
-                            <option value="java">REGISTRO CIVIL</option>
-                            <option value="java">CEDULA VENEZOLANA</option>
+                            <option value="cd">CARNET DIPLOMATICO</option>
+                            <option value="rc">REGISTRO CIVIL</option>
+                            <option value="cv">CEDULA VENEZOLANA</option>
                         </select>
                     </li>
 
@@ -125,26 +121,54 @@ function muestraVentana() {
  
             <br/>
  
-            <input type="submit" value="CONSULTAR" />
+            <input type="submit" value="CONSULTAR" name="buscar" />
             </form>
                 
-<div data-role='popup' id='popupDialog' data-theme='b'>
-
-    
- </div>   
                 
+<div data-role='popup' id='consultar' data-theme='b'> 
+    
+    <img src="img/simit_letra.png" WIDTH=578 HEIGHT=180>
+    Leyes, Ordenanzas y Acuerdos<br>
+-  Ley 769 de 2002 – Por medio del cual se expide el Código Nacional de Tránsito Terrestre y se dictan otras disposiciones.
+<br>
+-  Ley 1383 de 2010, “Por la cual se reforma la Ley 769 de 2002 - Código Nacional de Tránsito, y se dictan otras disposiciones.
+<br>
+-  Ley 1450 de 2011  “Por la cual se expide el Plan Nacional de Desarrollo, 2010-2014.
+
+</div>   
+
+
+</div>                
+                
+                
+<div data-role='popup' id='mision' data-theme='b'>
+
+     <center><img src="img/mision.jpg" ></center>
+    Contribuir al mejoramiento de los ingresos de los municipios con la operacion y permanente actualizacion del sistema integrado de informacion sobre multas y sanciones por infracciones de transito a nivel nacional; permitiendo el acceso a la informacion que impida la realizacion de tramites de transito a los ciudadanos  que no se encuentren a paz y salvo.</div>   
+         
+ <div data-role='popup' id='vision' data-theme='b'>               
+<center><img src="img/vision.jpg" ></center>
+    Para el ano 2020 el Sistema Integrado de Informacion sobre Multas y Sanciones por Infracciones de Transito - SIMIT sera el referente en Latinoamerica con los mas altos estandares de innovacion, calidad y confiabilidad.<br>
+
+Seremos la mejor experiencia de gobierno en linea y la principal fuente de informacion para las politicas publicas de seguridad vial, garantizando la nivelacion tecnologica de los organismos territoriales de transito, y consolidandonos como un sistema invulnerable que asegure la satisfaccion del usuario y la rentabilidad social.</div>   
+
 
 </div>
+            
+
 		
 	
 
 		<div data-position="fixed" data-tap-toggle="false" data-role="footer" data-tap-toggle="false" data-theme='b'>
 			<div data-role="navbar">
-				<ul>
-					<li><a href='#popupDialog' data-rel='popup' data-position-to='window' data-role='button' data-icon='external-link' data-                               transition='pop' data-inline='true'><i class='blIcon fa fa-cogs'></i>Consulta</a></li>
-					<li><a href="#"><i class='blIcon fa fa-map-marker'></i>Punto de Atencion</a></li>
-					<li><a href="#"><i class='blIcon fa fa-share'></i>Compartir!</a></li>
-                    <li><a href='#noticias' data-rel='noti' data-position-to='window' data-role='button' data-icon='external-link' data-                               transition='pop' data-inline='true'><i class='blIcon fa fa-share'></i>Noticias</a></li>
+			<ul>
+					<li><a href='#consultar' data-rel='popup' data-position-to='window' data-role='button' data-icon='external-link' data-                               transition='pop' data-inline='true'><i class='blIcon fa fa-cogs'></i>Consulta</a></li>
+                
+					<li><a href='C:/Movil/aplicacion/www/mapa.html' data-rel='popup' data-position-to='window' data-role='button' data-icon='external-link' data-                               transition='pop' data-inline='true'><i class='blIcon fa fa-map-marker'></i>Punto de Atencion</a></li>
+					<li><a href='#mision' data-rel='popup' data-position-to='window' data-role='button' data-icon='external-link' data-                               transition='pop' data-inline='true'><i class='blIcon fa fa-share'></i>Mision</a></li>
+                
+                
+                    <li><a href='#vision' data-rel='popup' data-position-to='window' data-role='button' data-icon='external-link' data-                               transition='pop' data-inline='true'><i class='blIcon fa fa-share'></i>Vision</a></li>
 				</ul>
 			</div>
 		</div>
